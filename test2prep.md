@@ -1,4 +1,4 @@
-# Test 2 Prep
+ aa# Test 2 Prep
 
 - Equation of a Plane Using Point Slope Slope
 - Vectors and their Properties
@@ -17,7 +17,7 @@
    <br><br><br><br><br><br>
 
 ## Vectors and their Properties
-
+       
 1. What is the difference between a free and position vector?
 
     <br><br><br><br><br><br>
