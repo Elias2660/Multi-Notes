@@ -1,4 +1,4 @@
- aa# Test 2 Prep
+# Test 2 Prep
 
 - Equation of a Plane Using Point Slope Slope
 - Vectors and their Properties
