@@ -67,7 +67,34 @@ $$\iint_{R} f(x, y) \delta A = \iint_{[a, b] \times [c, d]} f(x,y) \delta A$$
 \end{enumerate}
 
 
+\section{Evaluating Double Integrals}
+
+\subsection{Riemann Sums}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{images/RiemannSumsDoubleIntegralsExample.png}
+    \caption{Riemann Sums over Double Integrals}
+\end{figure}
+
+Just as with definite integrals, you can use Riemann-esque sums to estimate the area underneath a curve. \\ 
+\textbf{Example Question}: Estimate $\iint_{R} 3x-y^2 \delta A$, where $R = [0,2] \times [0,2]$ using a double Riemann sum using the midpoint of each rectangle, with $m, n = 2$.\\
+To solve, create a grid of a rectangle, and calculate $f(x^*, y^*)$, and multiply that for each rectangle by the $\Delta x$ and $\Delta y$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{images/ExampleRectangle.png}
+    \caption{Example rectangle, with the points showing the $f(x^*, y^*)$ that is needed to be calculated}
+\end{figure}
+
+Once you have the graph, actually solving is relatively straightfoward: $$A \approx f(0.5, 0.5)  \Delta x  \Delta y + f(1.5, 0.5)  \Delta x  \Delta y + f(0.5, 1.5)  \Delta x  \Delta y + f(1.5, 1.5)  \Delta x  \Delta y $$
+$$= 1.25 \times 1 \times 1 -0.75 \times 1 \times 1 + 4.25 \times 1 \times 1 + 2.25 \times 1 \times 1 = \boxed{7}$$
+
+There are other ways such a question can be phrased, but the formula/idea should be similar. 
 
 
+\subsection{Fubini's Theorem}
+
+Fubini's theorem is pretty simple, all one has to do is think about slicing a loaf of bread. 
 
 \end{document}
