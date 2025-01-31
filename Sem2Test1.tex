@@ -77,8 +77,8 @@ $$\iint_{R} f(x, y) \delta A = \iint_{[a, b] \times [c, d]} f(x,y) \delta A$$
     \caption{Riemann Sums over Double Integrals}
 \end{figure}
 
-Just as with definite integrals, you can use Riemann-esque sums to estimate the area underneath a curve. \\ 
-\textbf{Example Question}: Estimate $\iint_{R} 3x-y^2 \delta A$, where $R = [0,2] \times [0,2]$ using a double Riemann sum using the midpoint of each rectangle, with $m, n = 2$.\\
+Just as with definite integrals, you can use Riemann-esque sums to estimate the area underneath a curve. \\  ~ \\
+\textbf{Example Question}: Estimate $\iint_{R} 3x-y^2 \delta A$, where $R = [0,2] \times [0,2]$ using a double Riemann sum using the midpoint  of each rectangle, with $m, n = 2$.\\
 To solve, create a grid of a rectangle, and calculate $f(x^*, y^*)$, and multiply that for each rectangle by the $\Delta x$ and $\Delta y$.
 
 \begin{figure}[H]
@@ -90,11 +90,17 @@ To solve, create a grid of a rectangle, and calculate $f(x^*, y^*)$, and multipl
 Once you have the graph, actually solving is relatively straightfoward: $$A \approx f(0.5, 0.5)  \Delta x  \Delta y + f(1.5, 0.5)  \Delta x  \Delta y + f(0.5, 1.5)  \Delta x  \Delta y + f(1.5, 1.5)  \Delta x  \Delta y $$
 $$= 1.25 \times 1 \times 1 -0.75 \times 1 \times 1 + 4.25 \times 1 \times 1 + 2.25 \times 1 \times 1 = \boxed{7}$$
 
-There are other ways such a question can be phrased, but the formula/idea should be similar. 
+There are other ways such a question can be phrased, but the formula/idea should be similar.
 
 
-\subsection{Fubini's Theorem}
+\subsection{Fubini's Theorem and Evalutating Double Integrals}
 
-Fubini's theorem is pretty simple, all one has to do is think about slicing a loaf of bread. 
+Fubini's theorem like slicing a loaf of bread. Basically, you will have to take the slices (integrals over the contours) of either x or y, getting a area function given the other variable, and then integrate that or its range. \\ ~ \\
+Thus, Fubini's theorem states that if $f(x, y)$ is continious on $[a, b] \times [c, d]$ then $\iint_{R} f(x, y) \delta A$ equals:
+\begin{align*}
+    V = \int_{a}^{b} B(x) \delta x = \int_{a}^{b} \left[ \int_{c}^{d} f(x,y) \delta y \right] \delta x  &  & B(x) = \int_{c}^{d} f(x, y) \delta x \\
+    V = \int_{c}^{d} A(y) \delta y = \int_{c}^{d} \left[ \int_{a}^{b} f(x, y) \delta x \right] \delta y &  & A(y) = \int_{a}^{b} f(x, y) \delta y
+\end{align*}
+
 
 \end{document}
