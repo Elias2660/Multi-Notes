@@ -11,8 +11,8 @@
 
 \makeindex
 \begin{document}
-\title{Test 1 \\
-    Semester 2}
+\title{Test 1 Prep \\
+    \large{Semester 2}}
 \author{Elias Xu}
 \date{\today}
 \maketitle
@@ -93,14 +93,27 @@ $$= 1.25 \times 1 \times 1 -0.75 \times 1 \times 1 + 4.25 \times 1 \times 1 + 2.
 There are other ways such a question can be phrased, but the formula/idea should be similar.
 
 
-\subsection{Fubini's Theorem and Evalutating Double Integrals}
+\subsection{Fubini's Theorem and Evaluating Double Integrals}
 
-Fubini's theorem like slicing a loaf of bread. Basically, you will have to take the slices (integrals over the contours) of either x or y, getting a area function given the other variable, and then integrate that or its range. \\ ~ \\
+Evaluating double integrals is like counting up loafs of bread, and Fubini's theorem says that no matter how one slices, you'll get the same amount of bread. Y will have to take the slices (integrals over the contours) of either x or y, getting a area function given the other variable, and then integrate that or its range. \\ ~ \\
 Thus, Fubini's theorem states that if $f(x, y)$ is continious on $[a, b] \times [c, d]$ then $\iint_{R} f(x, y) \delta A$ equals:
 \begin{align*}
     V = \int_{a}^{b} B(x) \delta x = \int_{a}^{b} \left[ \int_{c}^{d} f(x,y) \delta y \right] \delta x  &  & B(x) = \int_{c}^{d} f(x, y) \delta x \\
     V = \int_{c}^{d} A(y) \delta y = \int_{c}^{d} \left[ \int_{a}^{b} f(x, y) \delta x \right] \delta y &  & A(y) = \int_{a}^{b} f(x, y) \delta y
 \end{align*}
 
+
+\section {The Very Nice Theorem}
+
+Interesting way to evauate integrals that can be separated into individual components. 
+$$\text{If } f(x, y) = g(x)h(y) \text{ and R} = [a, b] \times [c, d] \text{, then} \\ \iint_{R} f(x, y) \delta A = \int_{a}^{b} g(x) \delta x \int_{c}^{d} h(y) \delta y $$
+
+\section{Double Integral Properties (over Rectangles)}
+
+\begin{itemize}
+    \item  $\iint_{R} (f + g) \delta A = \iint_{R} f \delta A + \iint_{R} g \delta A$
+    \item $\iint_{R} cf(x,y) \delta A = c \iint_{R} f(x, y) \delta A$
+    \item If $f(x, y) \ge g(x, y)$, then $\iint_{R} f(x, y) \delta A \ge \iint_{R} g(x, y)$. (i.e. integrals preserve inequalities)
+\end{itemize}
 
 \end{document}
