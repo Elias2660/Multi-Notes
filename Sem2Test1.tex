@@ -17,6 +17,8 @@
 \date{\today}
 \maketitle
 
+\setlength{\parindent}{0pt}
+
 \section{Introduction}
 
 Here are Multi Notes to prepare for the first test
@@ -115,5 +117,26 @@ $$\text{If } f(x, y) = g(x)h(y) \text{ and R} = [a, b] \times [c, d] \text{, the
     \item $\iint_{R} cf(x,y) \delta A = c \iint_{R} f(x, y) \delta A$
     \item If $f(x, y) \ge g(x, y)$, then $\iint_{R} f(x, y) \delta A \ge \iint_{R} g(x, y)$. (i.e. integrals preserve inequalities)
 \end{itemize}
+
+\section{Evaluating Double Integrals over Non-Rectangular Boundaries}
+
+A big idea relating to evaluating double integrals over non-rectangular boundaries is how to find a bound, because it's more interesting/difficult to do so with these odd bounds. Thus we need to differential between type 1, type 2, and non-typal shapes.
+
+\subsection{Type 1 Shapes vs Type 2 Shapes}
+
+\textbf{Type 1 Shapes}\\
+Type one shapes have a $x \in \lbrack a, b \rbrack$ as boundaries, and are defined by two $y = g(x)$ functions. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/Type1Example.png}
+    \caption{Example of a Type 1 bound}
+\end{figure}
+\textbf{Type 2 Shapes} 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/Type2Example.png}
+    \caption{Example of a Type 2 Bound}
+\end{figure}
 
 \end{document}
