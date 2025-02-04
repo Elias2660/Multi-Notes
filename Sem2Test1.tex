@@ -31,7 +31,7 @@ Double integrals are integrals that represent the volumes under a surface, rathe
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.2\textwidth]{images/DefiniteIntegralExample.png}
+    \includegraphics[width=0.2\textwidth]{figures/DefiniteIntegralExample.png}
     \caption{Example of a definite Integral}
 \end{figure}
 
@@ -43,7 +43,7 @@ $$\int_{a}^{b} f(x)\delta x = f(x_1)\Delta x_1 + f(x_2) \Delta x_2 + ... = \lim_
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.2\textwidth]{images/DoubleIntegralsExample.png}
+    \includegraphics[width=0.2\textwidth]{figures/DoubleIntegralsExample.png}
     \caption{Example of a double Integral}
 \end{figure}
 
@@ -75,7 +75,7 @@ $$\iint_{R} f(x, y) \delta A = \iint_{[a, b] \times [c, d]} f(x,y) \delta A$$
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.2\textwidth]{images/RiemannSumsDoubleIntegralsExample.png}
+    \includegraphics[width=0.2\textwidth]{figures/RiemannSumsDoubleIntegralsExample.png}
     \caption{Riemann Sums over Double Integrals}
 \end{figure}
 
@@ -85,7 +85,7 @@ To solve, create a grid of a rectangle, and calculate $f(x^*, y^*)$, and multipl
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.2\textwidth]{images/ExampleRectangle.png}
+    \includegraphics[width=0.2\textwidth]{figures/ExampleRectangle.png}
     \caption{Example rectangle, with the points showing the $f(x^*, y^*)$ that is needed to be calculated}
 \end{figure}
 
@@ -124,19 +124,40 @@ A big idea relating to evaluating double integrals over non-rectangular boundari
 
 \subsection{Type 1 Shapes vs Type 2 Shapes}
 
-\textbf{Type 1 Shapes}\\
+\textbf{Type 1 Bound}\\
 Type one shapes have a $x \in \lbrack a, b \rbrack$ as boundaries, and are defined by two $y = g(x)$ functions. 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{images/Type1Example.png}
+    \includegraphics[width=0.5\textwidth]{figures/Type1Example.png}
     \caption{Example of a Type 1 bound}
 \end{figure}
-\textbf{Type 2 Shapes} 
-
+\textbf{Type 2 Bound} \\
+Type 2 shapes have a $y \in \lbrack a, b \rbrack$ as boundaries, and are defined by two $x = h(y)$ functions
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{images/Type2Example.png}
+    \includegraphics[width=0.5\textwidth]{figures/Type2Example.png}
     \caption{Example of a Type 2 Bound}
 \end{figure}
+\textbf{NOTE:} There are some surfaces that are BOTH type 1 and type 2 boundaries, such as a circle. 
+
+\subsection{Integrating over Type 1 and Type 2 Bounds}
+There are \emph{TWO OPTIONS} 
+\begin{itemize}
+    \item If the bounds are \textbf{functions of x}, or the base is a \textbf{type 1}, $$V = \iint_D f(x, y) \delta A = \int_{a}^{b} \big[ \int_{g_1(x)}^{g_2(x)} f(x, y) \delta y \big]\delta x$$
+    \item If the bounds are \textbf{functions of y}, of the base is a \textbf{type 2}, $$V = \iint_D f(x, y) \delta A =\int_{c}^{d} \big[\int_{h_1(y)}^{h_2(y)} f(x, y) \delta x \big]  \delta y $$
+\end{itemize}
+
+\subsection{Example}
+Find the volume of $z = 8 - 4x - 2y$ over the boundary: 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{figures/BoundedExample.png}
+\end{figure}
+The bound is both a type 1 and a type 2 integral, but let's start with integrating as a type 1 integral.
+$$\int_{0}^{2} \big[\int_{0}^{-2x+4} f(x, y) \delta y\big] \delta x$$
+$$= \int_{0}^{2} \big[8y - 4xy - y^2\big|_0^{-2x+4}\big] \delta x$$
+$$= \int_{0}^{2} \big[8(-2x+4) - 4(x)(-2x+4) - (-2x+4)^2\big] \delta x$$
+$$= \int_{0}^{2} 4x^2 - 16 x + 16 \delta x = \frac{4}{3} x^3 + 8x^2 + 16x \big|_0^2$$
+$$ = \boxed{32/3}$$
 
 \end{document}
