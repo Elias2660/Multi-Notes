@@ -6,6 +6,7 @@
 \usepackage{float} 
 \usepackage{graphicx}
 \usepackage{makeidx}
+\usepackage{pgfplots}
 \usepackage[letterpaper, total={7.5in, 10in}]{geometry}
 
 
@@ -16,6 +17,11 @@
 \author{Elias Xu}
 \date{\today}
 \maketitle
+
+\pgfplotsset{compat=1.17}
+
+
+\tableofcontents
 
 \setlength{\parindent}{0pt}
 
@@ -107,7 +113,7 @@ Thus, Fubini's theorem states that if $f(x, y)$ is continious on $[a, b] \times 
 
 \section {The Very Nice Theorem}
 
-Interesting way to evauate integrals that can be separated into individual components. 
+Interesting way to evauate integrals that can be separated into individual components.
 $$\text{If } f(x, y) = g(x)h(y) \text{ and R} = [a, b] \times [c, d] \text{, then} \\ \iint_{R} f(x, y) \delta A = \int_{a}^{b} g(x) \delta x \int_{c}^{d} h(y) \delta y $$
 
 \section{Double Integral Properties (over Rectangles)}
@@ -125,7 +131,7 @@ A big idea relating to evaluating double integrals over non-rectangular boundari
 \subsection{Type 1 Shapes vs Type 2 Shapes}
 
 \textbf{Type 1 Bound}\\
-Type one shapes have a $x \in \lbrack a, b \rbrack$ as boundaries, and are defined by two $y = g(x)$ functions. 
+Type one shapes have a $x \in \lbrack a, b \rbrack$ as boundaries, and are defined by two $y = g(x)$ functions.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/Type1Example.png}
@@ -138,17 +144,17 @@ Type 2 shapes have a $y \in \lbrack a, b \rbrack$ as boundaries, and are defined
     \includegraphics[width=0.5\textwidth]{figures/Type2Example.png}
     \caption{Example of a Type 2 Bound}
 \end{figure}
-\textbf{NOTE:} There are some surfaces that are BOTH type 1 and type 2 boundaries, such as a circle. 
+\textbf{NOTE:} There are some surfaces that are BOTH type 1 and type 2 boundaries, such as a circle.
 
 \subsection{Integrating over Type 1 and Type 2 Bounds}
-There are \emph{TWO OPTIONS} 
+There are \emph{TWO OPTIONS}
 \begin{itemize}
     \item If the bounds are \textbf{functions of x}, or the base is a \textbf{type 1}, $$V = \iint_D f(x, y) \delta A = \int_{a}^{b} \big[ \int_{g_1(x)}^{g_2(x)} f(x, y) \delta y \big]\delta x$$
     \item If the bounds are \textbf{functions of y}, of the base is a \textbf{type 2}, $$V = \iint_D f(x, y) \delta A =\int_{c}^{d} \big[\int_{h_1(y)}^{h_2(y)} f(x, y) \delta x \big]  \delta y $$
 \end{itemize}
 
 \subsection{Example}
-Find the volume of $z = 8 - 4x - 2y$ over the boundary: 
+Find the volume of $z = 8 - 4x - 2y$ over the boundary:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.3\textwidth]{figures/BoundedExample.png}
@@ -166,5 +172,29 @@ $$ = \boxed{32/3}$$
     \item $\delta x \delta y$ refers to a horizontal distance, while $\delta y \delta x$ refers to a vertical distance, e.g. trying to find the increase through the opposite bounds...
     \item To switch between $\delta x$ and $\delta y$, one has to look at the resulting bound to try to switch if the region is both a type 1 and a type 2
 \end{itemize}
+
+\section{Triple Integrals}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/Rectangle.png}
+    \caption{Three Dimensional Object}
+\end{figure}
+
+To integrate over three dimensional object, one can use triple integrals.
+
+$$\iiint_E f(x, y, z)$$
+
+Think about it as little cubes, with $$\lim_{m, n, l \to \infty} \Sigma_{k=1}^l \Sigma_{j = 1}^{m} \Sigma_{i = 1}^n f(y_{ijk}^*, y_{ijk}^*, z_{ijk}^*) \Delta x \Delta y \Delta z$$
+
+\subsection{Example}
+
+\subsection{Three Type of Regions of Space}
+
+\textbf{Type 1}
+
+\textbf{Type 2}
+
+\textbf{Type 3}
 
 \end{document}
