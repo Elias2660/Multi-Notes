@@ -11,14 +11,13 @@
 
 
 \makeindex
+\pgfplotsset{compat=1.18}
 \begin{document}
 \title{Test 1 Prep \\
     \large{Semester 2}}
 \author{Elias Xu}
 \date{\today}
 \maketitle
-
-\pgfplotsset{compat=1.17}
 
 
 \tableofcontents
@@ -187,14 +186,93 @@ $$\iiint_E f(x, y, z)$$
 
 Think about it as little cubes, with $$\lim_{m, n, l \to \infty} \Sigma_{k=1}^l \Sigma_{j = 1}^{m} \Sigma_{i = 1}^n f(y_{ijk}^*, y_{ijk}^*, z_{ijk}^*) \Delta x \Delta y \Delta z$$
 
-\subsection{Example}
-
 \subsection{Three Type of Regions of Space}
 
 \textbf{Type 1}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/RegionISpace.png}
+    \caption{Example of a type 1 surface}
+\end{figure}
+
+$$\iiint_E f(x, y, z) \delta V = \iint_D \int_{g_2(x, y)}^{g_1(x, y)} g_2 - g_1 \delta z \delta A$$
+
 \textbf{Type 2}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/type2surfaces.png}
+    \caption{Example of a type 2 surface}
+\end{figure}
+
+$$\iiint_E f(x, y, z) \delta V = \iint_D \int_{h_2(x, y)}^{h_1(x, y)} h_2 - h_1 \delta y \delta A$$
+
 \textbf{Type 3}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/type3surfaces.png}
+    \caption{Example of a type 3 surface}
+\end{figure}
+
+$$\iiint_E f(x, y, z) \delta V = \iint_D \int_{k_2(x, y)}^{k_1(x, y)} k_2 - k_1 \delta x \delta A$$
+
+\section{Changing the Bounds of Integrals}
+
+To change the bounds of an integral, all you do is to try to visualize the graph of the function, and then change the integrands to that.\\
+\textbf{Example}
+$$\int_{0}^{1}\int_{0}^{7} \delta x \delta y = \int_{0}^{1} \int_{x}^{1} f(x, y) \delta y \delta x$$
+
+\section{Odd stuff with two and Three Dimensional Integrals}
+
+\subsection{Odd stuff with 2x Integrals}
+
+\begin{itemize}
+    \item Graphing is usually good, remember when it would be good to split something up
+\end{itemize}
+
+\subsection{Off stuff with 3x Integrals}
+
+\begin{itemize}
+    \item Bounding Issues: Remember to list out bounds for the things well; it often helps to set some variables to zero
+\end{itemize}
+
+\section{Vector Value Functions}
+
+Vector value functions are parametrics that create three D vectors.
+
+$$\vec{r}: R \to R^3$$
+$$\vec{r}(t) = \langle x(t), y(t), z(t) \rangle$$
+
+\subsection{Odd stuff about VV functions}
+
+\begin{itemize}
+    \item $\vec{r}'(t)$ will be the tangent to curve provided by $\vec{r}'(t)$, but not to $\vec{r}(t)$ itself
+    \item $\vec{r}'(t)$ implies a cusp
+    \item Usual properties apply, order for cross product matters
+\end{itemize}
+
+\subsection{Unit Tangent and the Normal}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/NormalsBinormals.jpeg}
+    \caption{Graph showing binormals, normals, and tangents}
+\end{figure}
+
+$$\vec{T} = \frac{\vec{r}'(t)}{\left|\vec{r}'(t)\right|}$$
+$$\vec{N}(t) = \frac{\delta}{\delta t}\left[\frac{\vec{T}'(t)}{\left|\vec{T}'(t)\right|}\right]$$
+$$\vec{B} = \vec{T} \times \vec{N}$$
+
+\begin{itemize}
+    \item Normal Plane, the plane orthogonal to the curve's direction: $\vec{B} \times \vec{N}$
+    \item Osculating Plane, best approximates curve to a point: $\vec{N} \times \vec{T}$
+    \item Rectifying Plane, twisting behavior: $\vec{T} \times \vec{B}$
+\end{itemize}
+
+
+
+
 
 \end{document}
