@@ -185,9 +185,41 @@ $$\iiint_E f(x, y, z) \delta V = \iint_D \int_{k_2(x, y)}^{k_1(x, y)} k_2 - k_1 
 
 \subsection{Triple Integrals in Cylindrical Form}
 
+Spherical coordinates basically add an additional z dimension to the normal polar integrals.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/cylindrical.png}
+    \caption{Example of cylindrical coordinates}
+\end{figure}
+
+To convert between cylindrical and rectantular, you just have to add a z:\\
+\textbf{(cylindrical to rectangular)}
+
+$$\text{Given } P(x, y, z) \text{ and } P(r,\theta, z) \text{ represent the same point},\quad x = r \cos\theta,\quad y = r sin \theta, \quad z = z$$
+
+\textbf{(rectangular to cylindrical)}
+
+$$r^2=x^2+y^2,\quad \tan \theta = \frac{y}{x}, \quad z = z$$
+
 \subsection{Triple Integrals in Spherical Form}
 
+Sphericals turn the 2D pizza into a 3D sphere of greatness.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{figures/spherical_coordinates.png}
+    \caption{Example of spherical coordinates}
+\end{figure}
+
+If $P(x, y, z)$ and $P(r, \theta, \phi)$ represent the same point in rectangular and spherical coordinates, then \\
+\textbf{(spherical to rectangular)}
+
+$$x = r\cos\theta\sin\phi, \quad y = r\sin\theta\sin\phi, \quad z = r\cos\phi$$
+
+\textbf{(rectangular to cylindrical)}
+
+$$\rho^2 = x^2 + y^2 + z^2, \quad \tan \theta = \frac{y}{x}, \quad \cos \phi = \frac{\sqrt{x^2 + y^2}}{z}$$
 
 \section{Changing the Order of Integration}
 
