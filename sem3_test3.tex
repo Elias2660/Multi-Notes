@@ -12,8 +12,10 @@
 
 \makeindex
 \pgfplotsset{compat=1.18}
+\newcommand{\CURL}{\operatorname{curl}}
+\newcommand{\DIV}{\operatorname{div}}
 \begin{document}
-\title{Test 2 Prep \\
+\title{Test 3 Prep \\
     \large{Semester 2}}
 \author{Elias Xu}
 \date{\today}
@@ -40,6 +42,103 @@ The topics for the test are:
     \item DIV and CURL
 \end{itemize}
 
-\section{}
+\section{The Jacobian and Converting Between Coordinate Planes}
+
+For double integrals:
+
+\[
+    \iint_R f(x, y) \delta x \delta y = \iint_S f(x(u, v), y(u,v)) \frac{\delta (x, y)}{\delta (u, v)} \delta u \delta v
+\]
+\[
+    \frac{\delta (x, y)}{ \delta (u, v)} = \begin{vmatrix}
+        \frac{\delta x}{\delta u} & \frac{\delta x}{\delta v}  \\
+        \frac{\delta y}{\delta u} & \frac{\delta y}{ \delta v}
+    \end{vmatrix}
+\]
+
+3 Variable Jacobian:
+
+\[
+    \frac{\delta (x, y, z)}{\delta (u, v, w)} = \begin{vmatrix}
+        \frac{\delta x}{ \delta u } & \frac{\delta x}{\delta v} & \frac{\delta x}{\delta w} \\
+        \frac{\delta y}{\delta u}   & \frac{\delta y}{\delta v} & \frac{\delta y}{\delta w} \\
+        \frac{\delta z}{\delta u}   & \frac{\delta z}{\delta v} & \frac{\delta z}{\delta w}
+    \end{vmatrix}
+\]
+
+\section{Line Integrals}
+
+The area that can be taken under the cross section of a surface by a path.
+
+\subsection{W/R to dt}
+
+$$\int_C f(x, y) \delta s$$
+
+$\delta s$ represents a small arc length, and thus can be represented through a parameterization (in this example given a 2D function)
+
+$$\delta s = \sqrt{(x'(t))^2 + (y'(t))^2} \delta t$$
+
+thus
+
+$$\int_{t_0}^{t_1} f(x, y) \delta s = \int_{t_0}^{t_1} f(x, y) \sqrt{(x'(t)) ^2 + (y'(t))^2 + (z'(t))^2} \delta t$$
+
+\subsection{W/R to dx and dy}
+
+Projecting a path on the x or y axis rather than over the entire curve
+
+\textbf{Theorem 1}: If $\vec{r}(t) = <x(t), y(t)>$ represents a smooth parameterization of C, then:
+
+$$\int_C f(x, y) \delta x = \int_{t = a}^{t = b} f(x(t), y(t)) \cdot x'(t) \delta t$$
+$$\int_C f(x, y) \delta y = \int_{t = a}^{t = b} f(x(t), y(t)) \cdot y'(t) \delta t$$
+
+
+\section{Vector Fields}
+
+A vector field is a function that can assign a vector to any point. Very similar but not completely equal to a gradient.
+
+Calculating the "work" done by a vector field:
+
+$$\int_c \vec{F} \vec{T} \delta s = \int_c \vec{F} \frac{\vec{r}(t)}{\|\vec{r'}(t)\|} \|\vec{ r}'(t) \| \delta t = \int_c \vec{F} \cdot \vec{r'}(t) \delta t$$
+
+
+\subsection{Conservative Vector Fields}
+
+Conservative vector fields are always path independent, additionally they are the gradient of a function. One can use Clairaut's to find it. 
+
+\textbf{Theorem}: If $\vec{F}(x, y) = <P(x, y), Q(x, y)>$ is a vector field defined on an open connected set, D and if F is path independent in D then F is conservative in D.
+
+That means that you can find a line integral by finding the original function and then plugging the beginning and end points. 
+
+\subsection{Green's Theorem}
+
+(Equivalent to FTC)
+
+Let C be a piecewise, sooth, positively oriented simple closed curve and let D be the region enclosed by C and supposed that P(x, y) and Q(x, y have continuous) partials on an open region containing D. Then 
+
+$$\int_C P(x, y) \delta x + Q(x, y) \delta y = \iint_D \frac{\delta Q}{\delta x} - \frac{\delta P}{\delta y} \delta A$$
+
+
+\section{DIV and CURL}
+
+CURL os a measure the tendency of particles to rotate at a point. Think of it as measuring the spin of a top. ($F(x, y, z) = <P(x, y, z), Q(x,y,z), R(x,y,z)$)
+
+\[
+\CURL(\vec{F}) = \vec{\nabla} \times \vec{F} = \begin{vmatrix}
+    \hat{i} & \hat{j} & \hat{k} \\
+    \delta x & \delta y & \delta z \\
+    P & Q & R
+\end{vmatrix}
+\]
+
+DIV is a difference of the flux leaving / entering a point. 
+
+\[
+\DIV(\vec{F}) =  \vec{\nabla} \cdot \vec{F} = \delta x P + \delta y Q + \delta z R
+\]
+
+
+
+For both, if conservative equal zero.
+
 
 \end{document}
