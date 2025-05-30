@@ -70,7 +70,7 @@ For double integrals:
 
 The area that can be taken under the cross section of a surface by a path.
 
-\subsection{W/R to dt}
+\subsection{wrt dt}
 
 $$\int_C f(x, y) \delta s$$
 
@@ -80,9 +80,9 @@ $$\delta s = \sqrt{(x'(t))^2 + (y'(t))^2} \delta t$$
 
 thus
 
-$$\int_{t_0}^{t_1} f(x, y) \delta s = \int_{t_0}^{t_1} f(x, y) \sqrt{(x'(t)) ^2 + (y'(t))^2 + (z'(t))^2} \delta t$$
+$$\int_{t_0}^{t_1} f(x, y) \delta s = \int_{t_0}^{t_1} f(x, y) \sqrt{(x'(t)) ^2 + (y'(t))^2} \delta t$$
 
-\subsection{W/R to dx and dy}
+\subsection{wrt dx and dy}
 
 Projecting a path on the x or y axis rather than over the entire curve
 
@@ -109,13 +109,18 @@ Conservative vector fields are always path independent, additionally they are th
 
 That means that you can find a line integral by finding the original function and then plugging the beginning and end points. 
 
+\subsection{FTC for Conservative Vector Fields}
+
+If you have a function $f$, where $F = \nabla f$, then $\int_C F \cdot \delta r = F(\text{end}) - F(\text{start})$
+
 \subsection{Green's Theorem}
 
 (Equivalent to FTC)
 
-Let C be a piecewise, sooth, positively oriented simple closed curve and let D be the region enclosed by C and supposed that P(x, y) and Q(x, y have continuous) partials on an open region containing D. Then 
+Let C be a piecewise, sooth, positively oriented simple closed curve and let D be the region enclosed by C and supposed that P(x, y) and Q(x, y) have continuous partials on an open region containing D. Then 
 
 $$\int_C P(x, y) \delta x + Q(x, y) \delta y = \iint_D \frac{\delta Q}{\delta x} - \frac{\delta P}{\delta y} \delta A$$
+
 
 
 \section{DIV and CURL}
