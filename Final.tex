@@ -1,0 +1,135 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{bookmark}
+\usepackage{float} 
+\usepackage{graphicx}
+\usepackage{makeidx}
+\usepackage{pgfplots}
+\usepackage[letterpaper, total={7.5in, 10in}]{geometry}
+
+
+\makeindex
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+\title{FINAL FINAL FINAL}
+\author{Elias Xu}
+\date{\today}
+\maketitle
+
+\tableofcontents
+
+\setlength{\parindent}{0pt}
+
+\section{Introduction}
+
+List of topics to review:
+
+\begin{itemize}
+    \item Recognizing Surfaces
+    \item Implicit Differentiation
+    \item Mass / Inertia Polar
+    \item Changing the Order of Integration
+    \item Finding/Classifying Critical Points
+    \item Lagrange Multiplier
+    \item Finding a Tangent Plane
+    \item Geometrical Aspects of Gradient
+    \item Find Plane/Line given Information
+    \item Finding Position of Curve given Acceleration + Initial Values
+\end{itemize}
+
+
+\section{Recognizing Surfaces}
+
+Surfaces and their formulas:
+
+\begin{enumerate}
+    \item Sphere: $d(x+a)^2 + e(y+b)^2 + f(z+c)^2 = d$
+    \item Cone: $d(z+a)^2 = e(x+b)^2 + f(y+c^2)$ for a double cone (shooting from both ends), or $d(z+a)=\sqrt{e(x+b)^2 + f(y+c)^2}$
+    \item Circle / Cylinder, Cylinders are 3-space versions of Circles: $d(x+a)^2 + e(y+b)^2 = c$
+    \item Paraboloid: $a(x+d)^2 + b(y+e)^2 = 2c(z+f)$
+    \item Plane: $a(x+b) + c(y+d) + e(z+f) = g$
+\end{enumerate}
+
+\section{Implicit Differentiation}
+
+Implicit Differentiation basically means differentiation in terms of a variable in a function, while treating everything else (other functions, variables, etc), as constants. Liberal use of the chain rule will occur.
+
+\subsection{Clairaut's Theorem}
+
+If a function has continuous second derivative partials, then their mixed partial are equal (this can be expanded to other orders).
+
+\section{Mass / Inertia in Polar}
+
+It's pretty similar to normal rectangular calculations, but remember to use the formula $\delta A = r \delta r \delta \theta$ when integrating.
+
+
+\section{Changing Order of Integration}
+
+Just draw bounds and try to replicate those bounds when changing variables. Remember the direction of integration is important (for example, if one is integrating from the lower to the higher, keep that when changing the order of integration).
+
+\section{Classifying Critical Points}
+
+A critical point is where the function $f$ has $\nabla f(x,y) = 0$ or $f_x(x, y)$ or $f_y(x, y)$ DNE. A saddle point doesn't have to have an relative extrema, but all relative extrema are saddle points.
+
+$$D = D(a, b) = f_{xx}(a, b)f_{yy}(a,b) - \left[f_{xy}(a, b)\right]^2$$
+
+\begin{enumerate}
+    \item if $D > 0$ and $f_{xx}(a,b) > 0$ there is a relative minima at $(a,b)$
+    \item if $D > 0$ and $f_{xx}(a,b) < 0$ there is a relative maxima at $(a,b)$
+    \item if $D < 0$ the point $(a,b)$ is a saddle point
+    \item if $D = 0$ then the point $(a,b)$ can either be an absolute maxima, minima, or saddle point. Other techniques needed.
+\end{enumerate}
+
+\textbf{NOTE:} You can replace $f_{xx}$ and $f_{yy}$ because if $D > 0$ they will have to have the same signs.
+
+\subsection{How to do this...}
+
+\begin{itemize}
+    \item First find critical points where $\nabla f = 0$ (the possible $x$ and $y$ values)
+    \item Then classify the permutations of points as either relative/absolute maxima, relative/absolute minima, saddle points, or need more information using the above formula.
+\end{itemize}
+
+\section{Lagrange Multiplier}
+
+Lagrange Multipliers are ways that can help one find the the maximum of a equation of multiple variables given a constraining function. In general, to solving using the Lagrange multipliers uses the following system of equations:
+
+\begin{align*}
+    \vec{\nabla} f(x, y, z) & = \lambda \vec{\nabla} g(x, y, z) \\
+    g(x, y, z)              & = k
+\end{align*}
+
+Where $f$ of the function that you are trying to optimize for and $g$ is the constraining function. Usually, finding the value of $\lambda$ is not necessary in order to find a maxima or a minima. Quick way to solve:
+
+\begin{itemize}
+    \item Separate the first equation into components
+    \item Solve using the following system of equations. Depending on the object, either solve for or eliminate $\lambda$.
+\end{itemize}
+
+\section{Finding a Tangent Plane (feat. Binormal, Osculating, Normal)}
+
+Usually, one extracts the these plane from the surface by finding a gradient and then plugging in to get the associated vector.
+
+\begin{enumerate}
+    \item Tangent Vector (direction of the curve) $\vec{T}$: $\vec{T} = \frac{\vec{r'(t)}}{\left|\left|\vec{r}'(t)\right|\right|}$
+    \item Normal Vector (orientation of the curve) $\vec{N}$: $\vec{N} = \frac{\vec{T'(t)}}{\left|\left|\vec{T'(t)}\right|\right|}$
+    \item Binormal Vector (the curve's twisting behavior) $\vec{B}$: $\vec{B} = \vec{T} \times \vec{N}$
+\end{enumerate}
+
+This can be done just with plane old gradients, but usually only the tangent vector is calculate through that (differentiation with respect to $\delta S$ is pretty annoying in these cases). \textbf{Remember to plug into the point!!!}
+
+\section{Geometrical Aspects of Gradient}
+
+Most of this stuff is simple geometric stuff, e.g. regarding the gradient or the magnitude of the gradient. Else just remember a level curve basically is a topological map and normal equal perpendicular.
+
+\section{Find a Plane Given Information}
+
+Normal vector === Perpendicular to curve
+
+\section{Find Position of a Curve given Acceleration + Initial Values}
+
+Just integrate and pray. 
+
+\end{document}
