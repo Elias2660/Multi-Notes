@@ -203,27 +203,27 @@ Conservative vector fields are easier, you just have to find the function that t
 
 Given a positively oriented, piecewise, smooth function, with continious partials, then:
 
-$$ \oint_c (L \delta x + M\delta y) = \iint_D (\frac{\delta M}{\delta d} - \frac{\delta L}{\delta y})\delta A$$
+$$ \oint_C (L \delta x + M\delta y) = \iint_D (\frac{\delta M}{\delta d} - \frac{\delta L}{\delta y})\delta A$$
 
 \section{Surface Integrals}
 
 Flavors of surface integrals + two ways to vanilla evaluate them:
 
 \begin{enumerate}
-    \item $\iint_S f(x, y, z) \delta S = \iint_S f(x, y, g(x, y)) \delta S = \iint_D f(x, y, g(x, y)) \sqrt{(\frac{\delta g}{\delta x}^2) + (\frac{\delta g}{\delta y}^2) + 1} \delta A$ if $z = f(x, y)$. Expound for three variables.
-    \item $\iint_S f(x, y, z) \delta S = \iint_S f(\vec{r}(u, v)) \left|\left|\vec{r}_u \times \vec{r}_v \right|\right| \delta A $
+    \item $\oiint_S f(x, y, z) \delta S = \oiint_S f(x, y, g(x, y)) \delta S = \iint_D f(x, y, g(x, y)) \sqrt{(\frac{\delta g}{\delta x}^2) + (\frac{\delta g}{\delta y}^2) + 1} \delta A$ if $z = f(x, y)$. Expound for three variables.
+    \item $\oiint_S f(x, y, z) \delta S = \oiint_D f(\vec{r}(u, v)) \left|\left|\vec{r}_u \times \vec{r}_v \right|\right| \delta A $
 \end{enumerate}
 
 \subsection{Divergence Theorem}
 
 If $E$ is a solid simple region with $S$ being the boundary surface of $E$ with positive orientation, and $\vec{F}$ is a vector field with continuous first order partials. Then,
 
-$$\iint_S \vec{F} \cdot \delta \vec{S} = \iiint_E \text{DIV} (\vec{F}) \delta V$$
+$$\oiint_S \vec{F} \cdot \delta \vec{S} = \iiint_E \text{DIV} (\vec{F}) \delta V$$
 
 \subsection{Stokes' Theorem}
 
 Let $S$ be a oriented smooth surface that is bounded by a simple smooth boundary curve $C$ with positive orientation. And let $\vec{F}$ be a vector field, then
 
-$$\int_C \vec{F} \cdot \delta \vec{r} = \iint_{C} \text{Curl}\vec{F} \cdot \delta \vec{S}$$
+$$\oint_C \vec{F} \cdot \delta \vec{r} = \oiint_{S} \text{Curl}\vec{F} \cdot \delta \vec{S}$$
 
 \end{document}
