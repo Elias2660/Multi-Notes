@@ -2,10 +2,13 @@
 \usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{amsfonts}
+\usepackage{esint}
 \usepackage{bookmark}
 \usepackage{float} 
 \usepackage{graphicx}
 \usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{amssymb}
 \usepackage{pgfplots}
 \usepackage[letterpaper, total={7.5in, 10in}]{geometry}
 
@@ -38,7 +41,21 @@ List of topics to review:
     \item Geometrical Aspects of Gradient
     \item Find Plane/Line given Information
     \item Finding Position of Curve given Acceleration + Initial Values
+    \item Surface Integrals and Arc Length
 \end{itemize}
+
+\section{Point to Plane, Point to Line}
+
+Point to Plane:
+\[
+d \;=\; \frac{\bigl|A x_0 + B y_0 + C z_0 + D\bigr|}{\sqrt{A^2 + B^2 + C^2}}
+\]
+
+Point to Line:
+
+\[
+d \;=\; \frac{\bigl|A x_0 + B y_0 + C\bigr|}{\sqrt{A^2 + B^2}}
+\]
 
 
 \section{Recognizing Surfaces}
@@ -57,6 +74,13 @@ Surfaces and their formulas:
 
 Implicit Differentiation basically means differentiation in terms of a variable in a function, while treating everything else (other functions, variables, etc), as constants. Liberal use of the chain rule will occur.
 
+
+\section{Gradient}
+
+\subsection{Directional Derivative}
+
+In the same vein as finding a gradient, you can dot product a gradient by a direction to find the resulting slope in a certain direction.
+
 \subsection{Clairaut's Theorem}
 
 If a function has continuous second derivative partials, then their mixed partial are equal (this can be expanded to other orders).
@@ -69,6 +93,36 @@ It's pretty similar to normal rectangular calculations, but remember to use the 
 \section{Changing Order of Integration}
 
 Just draw bounds and try to replicate those bounds when changing variables. Remember the direction of integration is important (for example, if one is integrating from the lower to the higher, keep that when changing the order of integration).
+
+\section{The Jacobian and Converting between Coordinate Systems}
+
+$$\iint_R f(x, y) \delta A = \iint_S f(x(u, v), y(u, v)) \frac{\delta (x, y)}{\delta (u, v)} \delta u \delta v$$
+
+Where $\frac{\delta (x, y)}{\delta (u, v)}$ is defined as
+
+\[
+    \frac{\delta (x, y)}{ \delta (u, v)} = \begin{vmatrix}
+        \frac{\delta x}{\delta u} & \frac{\delta x}{\delta v}  \\
+        \frac{\delta y}{\delta u} & \frac{\delta y}{ \delta v}
+    \end{vmatrix}
+\]
+
+Steps for converting between coordinate systems (i.e. using a transformation to evaluate a new region):
+
+\begin{enumerate}
+    \item Given the new $u$ and $v$, find $x$ and $y$ in relation to $u$ and $v$.
+    \item Then (hopefully they're rectangular coordinates), find the bounds.
+    \item The integrate using the transformations and \textbf{not forgetting the Jacobian}.
+\end{enumerate}
+
+
+\section{Conversions between rectangular, spherical, and cylindrical}
+
+\begin{enumerate}
+    \item Rectangular to Polar: $x = \rho \cos \theta$, $y = \rho \sin \theta$, $\delta A = \rho \delta r \delta \theta$
+    \item Rectangular to Cylindrical: $x = \rho \cos \theta$, $y = \rho \sin \theta$, $z = z$; $\delta V =  \rho \delta z \delta r \delta \theta$
+    \item Rectangular to spherical: $x = \rho \cos \theta \sin \phi$, $y = \rho \sin \theta \sin \phi$, $z = \rho \cos \phi$, $\delta V = \rho^2 sin \phi \delta \rho \delta \theta \delta \phi$, remember that one has to be $\frac{\pi}{2}$ and the other has the be $2\pi$ for a sphere
+\end{enumerate}
 
 \section{Classifying Critical Points}
 
@@ -130,6 +184,46 @@ Normal vector === Perpendicular to curve
 
 \section{Find Position of a Curve given Acceleration + Initial Values}
 
-Just integrate and pray. 
+Just integrate and pray.
+
+
+\section{Line Integrals and Arc Length}
+
+Line integrals come in two flavors:
+
+\begin{enumerate}
+    \item  $\int_c f(x, y) \delta s$ where $\delta s = \sqrt{x'(t)^2 + y'(t)^2} \delta t$
+    \item $\int_c f(h(t), g(t)) \delta s$ where $\delta s = \left|\left|r'(t)\right|\right| \delta t$
+    \item  $\int_c \vec{F} \dot \vec{T} \delta s$ where $\delta s = r'(t) \delta t$ (The $\vec{T}$ is subsumed here). This is called a vector field, because you're dealing with the work / flux done by a field on an object.
+\end{enumerate}
+
+Conservative vector fields are easier, you just have to find the function that the gradient and the plug in, given the different values of $(x, y, z)$ you get from values of $t$.
+
+\subsection{Green's Theorem}
+
+Given a positively oriented, piecewise, smooth function, with continious partials, then:
+
+$$ \oint_c (L \delta x + M\delta y) = \iint_D (\frac{\delta M}{\delta d} - \frac{\delta L}{\delta y})\delta A$$
+
+\section{Surface Integrals}
+
+Flavors of surface integrals + two ways to vanilla evaluate them:
+
+\begin{enumerate}
+    \item $\iint_S f(x, y, z) \delta S = \iint_S f(x, y, g(x, y)) \delta S = \iint_D f(x, y, g(x, y)) \sqrt{(\frac{\delta g}{\delta x}^2) + (\frac{\delta g}{\delta y}^2) + 1} \delta A$ if $z = f(x, y)$. Expound for three variables.
+    \item $\iint_S f(x, y, z) \delta S = \iint_S f(\vec{r}(u, v)) \left|\left|\vec{r}_u \times \vec{r}_v \right|\right| \delta A $
+\end{enumerate}
+
+\subsection{Divergence Theorem}
+
+If $E$ is a solid simple region with $S$ being the boundary surface of $E$ with positive orientation, and $\vec{F}$ is a vector field with continuous first order partials. Then,
+
+$$\iint_S \vec{F} \cdot \delta \vec{S} = \iiint_E \text{DIV} (\vec{F}) \delta V$$
+
+\subsection{Stokes' Theorem}
+
+Let $S$ be a oriented smooth surface that is bounded by a simple smooth boundary curve $C$ with positive orientation. And let $\vec{F}$ be a vector field, then
+
+$$\int_C \vec{F} \cdot \delta \vec{r} = \iint_{C} \text{Curl}\vec{F} \cdot \delta \vec{S}$$
 
 \end{document}
